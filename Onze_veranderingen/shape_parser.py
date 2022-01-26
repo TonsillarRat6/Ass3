@@ -21,4 +21,5 @@ class Parser:
             elif shape_def["type"] == "star":
                 shapes.append(
                     Star(shape_def["x"], shape_def["y"], shape_def["width"], shape_def["height"]))
+        print(shapes)
         return shapes
