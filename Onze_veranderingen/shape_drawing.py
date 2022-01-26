@@ -3,7 +3,8 @@ from rectangle import Rectangle
 from circle import Circle
 from star import Star
 from shape_parser import Parser
-
+import svgwrite
+import os
 
 class ShapeDrawing(Frame):
 
@@ -11,6 +12,8 @@ class ShapeDrawing(Frame):
         Frame.__init__(self, master)
         self.widgets()
         self.shapes = []
+        self.svg_name = 'svg.svg'
+        self.svgFile = svgwrite.Drawing(self.svg_name)
 
     def widgets(self):
         menubar = Menu(self.master)
@@ -38,9 +41,14 @@ class ShapeDrawing(Frame):
         parser = Parser()
         self.shapes = parser.parse_shapes(file)
 
+        if os.path.exists(self.svg_name):
+            os.remove(self.svg_name)
         self.canvas.delete("all")
         for shape in self.shapes:
             shape.draw(self.canvas)
+            shape.drawSVG(self.svgFile)
+        self.svgFile.save()
+        os.startfile(self.svg_name)
 
     def onClear(self):
         self.canvas.delete("all")
