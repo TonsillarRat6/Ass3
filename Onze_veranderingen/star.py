@@ -4,17 +4,18 @@ from tkinter import Canvas
 
 class Star(Shape):
 
-    def __init__(self, x: int, y: int, width: int, height: int, color: str, outline: str):
+    def __init__(self, x: int, y: int, width: int, height: int, color: str, outline: str, stroke: str):
         self.x: int = x
         self.y: int = y
         self.width: int = width
         self.height: int = height
         self.color: str = color
         self.outline: str = outline
+        self.stroke: str = stroke
         super().__init__()
 
     def get_pts_list(self):
-        numPoints = 3
+        numPoints = 5
         pts = []
         rx = self.width / 2 
         ry = self.height / 2 
@@ -38,12 +39,13 @@ class Star(Shape):
 
     def draw(self, canvas: Canvas):
         # we use the '*' syntax here to convert the list of points to function arguments
-        canvas.create_polygon(*self.get_pts_list(), fill=self.color, outline=self.outline)
+        canvas.create_polygon(*self.get_pts_list(), fill=self.color, outline=self.outline, width=self.stroke)
 
 
     def drawSVG(self, svgFile):
         svgFile.add(svgFile.polygon(
             points=self.adapt_pts(),
             fill=self.color,
-            stroke=self.outline
+            stroke=self.outline,
+            stroke_width=self.stroke
         ))

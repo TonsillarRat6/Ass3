@@ -5,7 +5,8 @@
     "y": 125,
     "radius": 25,
     "color": "blue",
-    "outline" : "black"
+    "outline" : "black",
+    "stroke_thiccness" : "5"
   },
   {
     "type": "rectangle",
@@ -14,7 +15,8 @@
     "height": 50,
     "width": 100,
     "color": "red",
-    "outline" : "black"
+    "outline" : "green",
+    "stroke_thiccness" : "2"
   },
   {
     "type": "star",
@@ -23,6 +25,7 @@
     "width": 30,
     "height": 30,
     "color": "orange",
-    "outline" : "black"
+    "outline" : "blue",
+    "stroke_thiccness" : "1"
   }
 ]

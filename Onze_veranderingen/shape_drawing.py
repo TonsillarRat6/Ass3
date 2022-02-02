@@ -62,7 +62,6 @@ class ShapeDrawing(Frame):
 
 
 def main():
-
     root = Tk()
     root.title("Shape Drawing")
     root.geometry("400x250+300+300")
