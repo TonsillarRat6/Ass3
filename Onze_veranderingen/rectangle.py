@@ -22,12 +22,3 @@ class Rectangle(Shape):
                                 fill=self.color,
                                 outline=self.outline,
                                 width=self.stroke)
-
-    def drawSVG(self, svgFile):
-        svgFile.add(svgFile.rect(
-            insert = (self.x, self.y),
-            size = (self.width, self.height),
-            fill=self.color,
-            stroke=self.outline,
-            stroke_width=self.stroke
-        ))

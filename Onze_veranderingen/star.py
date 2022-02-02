@@ -34,19 +34,6 @@ class Star(Shape):
             theta += dtheta
         return pts
 
-    def adapt_pts(self):
-        temp = iter(self.get_pts_list())
-        return zip(temp, temp)
-
     def draw(self, canvas: Canvas):
         # we use the '*' syntax here to convert the list of points to function arguments
         canvas.create_polygon(*self.get_pts_list(), fill=self.color, outline=self.outline, width=self.stroke)
-
-
-    def drawSVG(self, svgFile):
-        svgFile.add(svgFile.polygon(
-            points=self.adapt_pts(),
-            fill=self.color,
-            stroke=self.outline,
-            stroke_width=self.stroke
-        ))

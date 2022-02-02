@@ -8,7 +8,3 @@ class Shape(ABC):
     @abstractmethod
     def draw(self, canvas: Canvas):
         pass
-
-    @abstractmethod
-    def drawSVG(self):
-        pass

@@ -19,12 +19,3 @@ class Circle(Shape):
                            fill=self.color,
                            outline=self.outline,
                            width=self.stroke)
-
-    def drawSVG(self, svgFile):
-        svgFile.add(svgFile.circle(
-            center = (self.x, self.y),
-            r = self.radius,
-            fill=self.color,
-            stroke=self.outline,
-            stroke_width=self.stroke
-        ))
