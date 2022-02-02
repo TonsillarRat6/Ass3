@@ -1,5 +1,6 @@
 import json
 from circle import Circle
+from draw import SVGDraw, TKDraw
 from rectangle import Rectangle
 from star import Star
 from shape import Shape
@@ -20,5 +21,5 @@ class Parser:
                     Rectangle(shape_def["x"], shape_def["y"], shape_def["width"], shape_def["height"], shape_def["color"], shape_def["outline"], shape_def["stroke_thiccness"]))
             elif shape_def["type"] == "star":
                 shapes.append(
-                    Star(shape_def["x"], shape_def["y"], shape_def["width"], shape_def["height"], shape_def["pts"], shape_def["color"], shape_def["outline"], shape_def["stroke_thiccness"]))
+                    Star(shape_def["x"], shape_def["y"], shape_def["width"], shape_def["height"], shape_def["pts"], shape_def["color"], shape_def["outline"], shape_def["stroke_thiccness"]))    
         return shapes

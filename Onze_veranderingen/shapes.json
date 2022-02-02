@@ -28,16 +28,5 @@
     "color": "orange",
     "outline" : "blue",
     "stroke_thiccness" : "1"
-  },
-  {
-    "type": "star",
-    "x": 100,
-    "y": 50,
-    "width": 30,
-    "height": 30,    
-    "pts" : 3,
-    "color": "orange",
-    "outline" : "blue",
-    "stroke_thiccness" : "1"
   }
 ]

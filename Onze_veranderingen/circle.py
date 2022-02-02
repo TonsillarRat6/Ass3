@@ -1,5 +1,7 @@
 from shape import Shape
 from tkinter import Canvas
+from draw import SVGDraw, TKDraw
+from svgwrite import Drawing
 
 
 class Circle(Shape):
@@ -13,9 +15,6 @@ class Circle(Shape):
         self.stroke: str = stroke
         super().__init__()
 
-    def draw(self, canvas: Canvas):
-        canvas.create_oval(self.x - self.radius, self.y - self.radius,
-                           self.x + self.radius, self.y + self.radius,
-                           fill=self.color,
-                           outline=self.outline,
-                           width=self.stroke)
+    def draw(self, canvas: Canvas, svg_file: Drawing):
+        SVGDraw.draw_oval(self.x, self.y, self.radius, self.color, self.outline, self.stroke, svg_file)
+        TKDraw.draw_oval(self.x, self.y, self.radius, self.color, self.outline, self.stroke, canvas)

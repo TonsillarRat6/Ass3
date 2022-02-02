@@ -1,11 +1,8 @@
 from tkinter import Tk, Canvas, Frame, Menu, BOTH, filedialog
-from rectangle import Rectangle
-from circle import Circle
-from star import Star
 from shape_parser import Parser
-from SVGShapeParser import SVGParser
 import svgwrite
-import os
+import os # Verwijder dit
+
 
 class ShapeDrawing(Frame):
 
@@ -13,7 +10,6 @@ class ShapeDrawing(Frame):
         Frame.__init__(self, master)
         self.widgets()
         self.shapes = []
-        self.svg_shapes = []
         self.svg_name = 'svg.svg'
         self.svgFile = svgwrite.Drawing(self.svg_name)
 
@@ -43,18 +39,12 @@ class ShapeDrawing(Frame):
         parser = Parser()
         self.shapes = parser.parse_shapes(file)
 
-        svg_parser = SVGParser()
-        self.svg_shapes = svg_parser.parse_shapes(file)
-
-        if os.path.exists(self.svg_name):
-            os.remove(self.svg_name)
+        if os.path.exists(self.svg_name): # Verwijder dit
+            os.remove(self.svg_name) # Verwijder dit
         self.canvas.delete("all")
         for shape in self.shapes:
-            shape.draw(self.canvas)
-        for svg_shape in self.svg_shapes:
-            svg_shape.draw(self.svgFile)
-        self.svgFile.save()
-        os.startfile(self.svg_name)
+            shape.draw(self.canvas, self.svgFile)
+        os.startfile(self.svg_name) # Verwijder dit
 
     def onClear(self):
         self.canvas.delete("all")

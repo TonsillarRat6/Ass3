@@ -1,6 +1,9 @@
 from shape import Shape
 import math
 from tkinter import Canvas
+from draw import TKDraw, SVGDraw
+from svgwrite import Drawing
+
 
 class Star(Shape):
 
@@ -27,13 +30,17 @@ class Star(Shape):
 
         for i in range(0, numPoints + 1):
             pts.append(
-                int(round(cx + rx * math.cos(theta)))) #
+                int(round(cx + rx * math.cos(theta)))) 
             pts.append(
                 int(round(cy + ry * math.sin(theta)))
             )
             theta += dtheta
         return pts
+    
+    def adapt_pts(self):
+        temp = iter(self.get_pts_list())
+        return zip(temp, temp)
 
-    def draw(self, canvas: Canvas):
-        # we use the '*' syntax here to convert the list of points to function arguments
-        canvas.create_polygon(*self.get_pts_list(), fill=self.color, outline=self.outline, width=self.stroke)
+    def draw(self, canvas: Canvas, svg_file: Drawing):
+        SVGDraw.draw_polygon(self.adapt_pts(), self.color, self.outline, self.stroke, svg_file)
+        TKDraw.draw_polygon(self.get_pts_list(), self.color, self.outline, self.stroke, canvas)

@@ -1,6 +1,8 @@
-from numpy import insert
 from shape import Shape
 from tkinter import Canvas
+from draw import TKDraw, SVGDraw
+from svgwrite import Drawing
+
 
 class Rectangle(Shape):
 
@@ -14,11 +16,7 @@ class Rectangle(Shape):
         self.stroke: str = stroke
         super().__init__()
 
-    def draw(self, canvas: Canvas):
-        canvas.create_rectangle(self.x, 
-                                self.y,
-                                self.x + self.width,
-                                self.y + self.height,
-                                fill=self.color,
-                                outline=self.outline,
-                                width=self.stroke)
+    def draw(self, canvas: Canvas, svg_file: Drawing):
+        print(svg_file)
+        SVGDraw.draw_rectangle(self.x, self.y, self.width, self.height, self.color, self.outline, self.stroke, svg_file)
+        TKDraw.draw_rectangle(self.x, self.y, self.width, self.height, self.color, self.outline, self.stroke, canvas)
