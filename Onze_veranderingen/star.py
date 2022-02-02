@@ -4,18 +4,19 @@ from tkinter import Canvas
 
 class Star(Shape):
 
-    def __init__(self, x: int, y: int, width: int, height: int, color: str, outline: str, stroke: str):
+    def __init__(self, x: int, y: int, width: int, height: int, pts: int, color: str, outline: str, stroke: str):
         self.x: int = x
         self.y: int = y
         self.width: int = width
         self.height: int = height
+        self.pts: int = pts
         self.color: str = color
         self.outline: str = outline
         self.stroke: str = stroke
         super().__init__()
 
     def get_pts_list(self):
-        numPoints = 5
+        numPoints = self.pts
         pts = []
         rx = self.width / 2 
         ry = self.height / 2 

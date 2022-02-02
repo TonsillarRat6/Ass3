@@ -3,7 +3,7 @@
     "type": "circle",
     "x": 70,
     "y": 125,
-    "radius": 25,
+    "radius" : 25,
     "color": "blue",
     "outline" : "black",
     "stroke_thiccness" : "5"
@@ -23,7 +23,19 @@
     "x": 50,
     "y": 50,
     "width": 30,
-    "height": 30,
+    "height": 30,    
+    "pts" : 5,
+    "color": "orange",
+    "outline" : "blue",
+    "stroke_thiccness" : "1"
+  },
+  {
+    "type": "star",
+    "x": 100,
+    "y": 50,
+    "width": 30,
+    "height": 30,    
+    "pts" : 3,
     "color": "orange",
     "outline" : "blue",
     "stroke_thiccness" : "1"
